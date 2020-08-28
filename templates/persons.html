@@ -15,10 +15,10 @@
 
 <form method="POST" action="{{ url_for('send') }}">
     {{ form.csrf_token }}
-    {{ form.username.label }}  {{ form.username(size=20) }}
-    {{ form.csrf_token }}
-    {{ form.benches.label }}  {{ form.benches(size=20) }}
-    <input type="submit" value="Go">
+    {{ form.username.label }}  {{ form.username(size=10) }}
+    <br></br>
+    {{ form.benches.label }}  {{ form.benches() }}
+    <input type="submit" value="Submit">
 </form> 
 
 {% endblock %}
