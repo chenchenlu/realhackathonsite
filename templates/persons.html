@@ -10,15 +10,15 @@
         font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     }
 </style>
-<h4  style="color:#B31B1B"> Thanks for letting us know. {{ persons }} number of people are going. </h4>
-<!-- <h2> Interested in going? Let us know!</h2>
-<form action="" method="post">
-    <p>
-        {{form.username.label}} <br>
-        {{form.username(size=30)}}
-    </p>
-    <p>{{form.submit}}</p>
+<!-- <h4  style="color:#B31B1B"> Thanks for letting us know. {{ persons }} number of people are going. </h4> -->
+<!-- <h2> Interested in going? Let us know!</h2> -->
 
-</form> -->
+<form method="POST" action="{{ url_for('send') }}">
+    {{ form.csrf_token }}
+    {{ form.username.label }}  {{ form.username(size=20) }}
+    {{ form.csrf_token }}
+    {{ form.benches.label }}  {{ form.benches(size=20) }}
+    <input type="submit" value="Go">
+</form> 
 
 {% endblock %}
