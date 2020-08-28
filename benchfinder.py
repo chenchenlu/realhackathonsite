@@ -30,9 +30,11 @@ def home():
 
 @app.route('/')
 def index():
-
     return fg._repr_html_()
 
+@app.route('/density')
+def density():
+    return render_template("density.html")
 
 @app.route('/cumap')
 def mapdisplay():
