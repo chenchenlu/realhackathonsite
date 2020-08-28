@@ -3,7 +3,7 @@ from wtforms import Form, TextField, TextAreaField, validators, StringField, Sub
 import folium
 import pandas
 from flask_wtf import FlaskForm
-
+#lol ok this is creative
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'whatthefrick'
