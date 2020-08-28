@@ -12,12 +12,12 @@ data=pandas.read_csv('Benches_Coordinates.csv')
 LAT=list(data['Latitude'])
 LON=list(data['Longitude'])
 name=list(data['Name'])
-website=list(data['Website'])
+directions=list(data['Directions'])
 
-start_coords = [42.447285, -76.484052]
+start_coords = [42.4453,-76.482661]
 fg=folium.Map(location=start_coords, zoom_start=17)
 
-for lt,ln,nm,ws in zip(LAT,LON,name,website):
+for lt,ln,nm,ws in zip(LAT,LON,name,directions):
  	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><a href="+ws+">click here</a>",icon=folium.Icon(color='green')))
 
 class ReusableForm(FlaskForm):
