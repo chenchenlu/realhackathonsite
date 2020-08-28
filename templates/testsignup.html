@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block content %}
+
+<h2> Interested in going? Let us know!</h2>
+<form action="" method="post">
+    <p>
+        {{form.username.label}} <br>
+        {{form.username(size=30)}}
+    </p>
+    <p>{{form.submit}}</p>
+
+</form>
+
+{% endblock %}
