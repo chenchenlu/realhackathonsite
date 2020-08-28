@@ -4,11 +4,11 @@ import pandas
 
 app = Flask(__name__)
 data=pandas.read_csv('Benches_Coordinates.csv')
-
+#cap
 LAT=list(data['Latitude'])
 LON=list(data['Longitude'])
 name=list(data['Name'])
-start_coords = [42.447285, -76.484052]
+start_coords = [42.44574,-76.482661]
 # capacity=list(data['capacity'])
 website=list(data['Website'])
 # picture=list(data['picture'])
