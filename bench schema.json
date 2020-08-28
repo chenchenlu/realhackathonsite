@@ -1,0 +1,25 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "name": {
+                "type": "string"
+            },
+            "coordinates": {
+                "longitude": {
+                    "type": "float"
+                },
+                "latitude": {
+                    "type": "float"
+                }
+            },
+            "seating capacity": {
+                "type": "integer"
+            }
+        }
+    }
+}
