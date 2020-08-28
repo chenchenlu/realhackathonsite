@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'whatthefrick'
 data=pandas.read_csv('Benches_Coordinates.csv')
-
+#okay
 LAT=list(data['Latitude'])
 LON=list(data['Longitude'])
 name=list(data['Name'])
