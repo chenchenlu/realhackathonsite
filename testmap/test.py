@@ -19,7 +19,7 @@ fg=folium.Map(location=start_coords, zoom_start=17)
 
  
 for lt,ln,nm,ws in zip(LAT,LON,name,website):
- 	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><a href="+ws+">click here</a>",icon=folium.Icon(color='green')))
+ 	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><iframe src="+ws+">click here</iframe>",icon=folium.Icon(color='green')))
 
 
 fg.save('/Users/jialichen/Desktop/hackathon_site/cumap.html')
