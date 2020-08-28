@@ -4,7 +4,7 @@ import pandas
 
 app = Flask(__name__)
 data=pandas.read_csv('Benches_Coordinates.csv')
-
+#cap
 LAT=list(data['Latitude'])
 LON=list(data['Longitude'])
 name=list(data['Name'])
