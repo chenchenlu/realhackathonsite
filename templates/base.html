@@ -1,29 +1,38 @@
 <!doctype html>
 <html>
     <style>
-        #text{
+        #title{
             color:#B31B1B;
             font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            padding: 30px;
+            margin:0 auto;
         }
+        #text{
+            color:#222222;
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+            padding: 10px;
+        }
+        
+    
     </style>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
 
-        <h1 id="text">Big Red BenchFinder</h1>
+        <h1 id="title">Big Red BenchFinder</h1>
         <title>{% block title %}{% endblock %}</title>
-        <h3 id="text"> Find benches on campus to chill with friends while maintaining social distancing!</h3>
+        <h3 id="text" style="color:#222222; padding: 1px">Find benches on campus to chill with friends while maintaining social distancing!</h3>
         <link rel="stylesheet" href="style.css"></link>
         
     </head> 
-    <body style="background-color:#F7F7F7; text-align:center">
+    <body style="background-color:#F7F7F7; text-align:center; text-padding: 5px 5px">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div id="text" class="navbar-nav">
+              <div class="navbar-nav">
                 <!-- <a class="nav-item nav-link active" href="/">Central Campus Map<span class="sr-only">(current)</span></a> -->
                 <a class="nav-item nav-link" href="/send">Central Campus</a>
                 <a class="nav-item nav-link" href="/density">Density </a>

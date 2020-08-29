@@ -12,13 +12,18 @@
 </style>
 <!-- <h4  style="color:#B31B1B"> Thanks for letting us know. {{ persons }} number of people are going. </h4> -->
 <!-- <h2> Interested in going? Let us know!</h2> -->
-
-<form method="POST" action="{{ url_for('send') }}">
+<style>
+    #text{
+        color:#B31B1B;
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    }
+</style>
+<form id="text" method="POST" action="{{ url_for('send') }}">
     {{ form.csrf_token }}
     {{ form.username.label }}  {{ form.username(size=10) }}
     <br></br>
     {{ form.benches.label }}  {{ form.benches() }}
-    <input type="submit" value="Submit">
+    <input id="text" type="submit" value="Submit">
 </form> 
 
 {% endblock %}
