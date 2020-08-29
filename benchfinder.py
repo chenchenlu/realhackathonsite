@@ -23,7 +23,7 @@ fg=folium.Map(location=start_coords, zoom_start=17)
 
 
 for lt,ln,nm,ws in zip(LAT,LON,name,directions):
- 	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><a href="+ws+">click here</a>",icon=iconBench))
+ 	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><a href="+ws+">click here</a>",icon=folium.Icon(color='green')))
 
 class ReusableForm(FlaskForm):
     username = StringField('Number of People Going')
@@ -52,7 +52,10 @@ def send():
     form= ReusableForm()
 
     if form.validate_on_submit():
-         return "<h2> Persons going: {0} {1}".format(form.username.data, form.benches.data)
+        
+        user = "Got it! {0} more hoomans are visiting {1}.".format(form.username.data, form.benches.data)
+        return render_template('submission.html', value=user)
+        #  return "<h2> Persons going: {0} {1}".format(form.username.data, form.benches.data)
     return render_template("persons.html",form=form)
 
 @app.route("/testsignup")
