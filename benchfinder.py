@@ -35,6 +35,7 @@ def home():
 def index():
     return fg._repr_html_()
 
+
 @app.route('/density')
 def density():
     return render_template("density.html")
