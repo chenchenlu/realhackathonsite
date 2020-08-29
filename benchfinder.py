@@ -4,50 +4,58 @@ import folium
 import collections
 import pandas
 from flask_wtf import FlaskForm
-#lol ok this is creative
-#this one is really more creative
+# lol ok this is creative
+# this one is really more creative
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = 'whatthefrick'
-data=pandas.read_csv('Benches_Coordinates.csv')
-#okay
-LAT=list(data['Latitude'])
-LON=list(data['Longitude'])
-name=list(data['Name'])
-directions=list(data['Directions'])
-LIST_BENCHES=name
+data = pandas.read_csv('Benches_Coordinates.csv')
+# okay
+LAT = list(data['Latitude'])
+LON = list(data['Longitude'])
+name = list(data['Name'])
+directions = list(data['Directions'])
+LIST_BENCHES = name
 
-start_coords = [42.4453,-76.482661]
-fg=folium.Map(location=start_coords, zoom_start=17)
-locationBench=[]
-popupBench=[]
+start_coords = [42.4453, -76.482661]
+fg = folium.Map(location=start_coords, zoom_start=17)
+locationBench = []
+popupBench = []
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 82a40b8c275aaa24863ced1ef556a94c28215212
+<< << << < HEAD
+== == == =
+<< << << < HEAD
+>>>>>> > 82a40b8c275aaa24863ced1ef556a94c28215212
 for i in range(13):
 
     locationBench_temp = [LAT[i], LON[i]]
     locationBench.append(locationBench_temp)
-    description = "<b>Name  : </b>"+name[i] + "<br><b>Directions: </b><a href="+directions[i]+">click here</a>"
+    description = "<b>Name  : </b>" + \
+        name[i] + "<br><b>Directions: </b><a href=" + \
+        directions[i]+">click here</a>"
     popupBench.append(description)
-    folium.Marker(location=locationBench_temp, popup=description, icon=folium.features.CustomIcon('bench.jpg', icon_size=(50,50))).add_to(fg)
+    folium.Marker(location=locationBench_temp, popup=description,
+                  icon=folium.features.CustomIcon('bench.jpg', icon_size=(50, 50))).add_to(fg)
 
-=======
-for lt,ln,nm,ws in zip(LAT,LON,name,directions):
- 	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><a href="+ws+">click here</a>",icon=folium.Icon(color='green')))
->>>>>>> 1f07f7cdd5f9a22a4c3e7dc12e93496823e59a24
+== == == =
+for lt, ln, nm, ws in zip(LAT, LON, name, directions):
+    fg.add_child(folium.Marker(location=[lt, ln], popup="<b>Name  : </b>"+nm +
+                               "<br><b>Directions: </b><a href="+ws+">click here</a>", icon=folium.Icon(color='green')))
+>>>>>> > 1f07f7cdd5f9a22a4c3e7dc12e93496823e59a24
+
 
 class ReusableForm(FlaskForm):
     username = StringField('Number of People Going')
     submit = SubmitField('Submit')
-    benches = SelectField(label='Benches', choices=[(bench, bench) for bench in LIST_BENCHES])
+    benches = SelectField(label='Benches', choices=[
+                          (bench, bench) for bench in LIST_BENCHES])
+
 
 @app.route("/")
 def home():
     return render_template("index.html")
+
 
 @app.route('/')
 def index():
@@ -58,25 +66,30 @@ def index():
 def density():
     return render_template("density.html")
 
+
 @app.route('/cumap')
 def mapdisplay():
     return fg._repr_html_()
 
+
 @app.route('/send', methods=['GET', 'POST'])
 def send():
-    form= ReusableForm()
+    form = ReusableForm()
 
     if form.validate_on_submit():
-        
-        user = "Got it! {0} more hoomans are visiting {1}.".format(form.username.data, form.benches.data)
+
+        user = "Got it! {0} more hoomans are visiting {1}.".format(
+            form.username.data, form.benches.data)
         return render_template('submission.html', value=user)
         #  return "<h2> Persons going: {0} {1}".format(form.username.data, form.benches.data)
-    return render_template("persons.html",form=form)
+    return render_template("persons.html", form=form)
+
 
 @app.route("/testsignup")
 def signup():
-    form= ReusableForm()
+    form = ReusableForm()
     return render_template("testsignup.html", form=form)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
