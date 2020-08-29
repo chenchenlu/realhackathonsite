@@ -1,17 +1,28 @@
 {% extends "base.html"%}
 {% block content %}
-<br>
-<iframe  class="container-fluid" src="https://www.google.com/maps/d/embed?mid=1AgyqXERQnLRjHyB2upji924UhFhT7AVx" height="480"></iframe>
-</br>
-<h4  style="color:#B31B1B"> Thanks for letting us know. {{ persons }} number of people are going. </h4>
-<!-- <h2> Interested in going? Let us know!</h2>
-<form action="" method="post">
-    <p>
-        {{form.username.label}} <br>
-        {{form.username(size=30)}}
-    </p>
-    <p>{{form.submit}}</p>
+<iframe class="container-fluid" src="/cumap" height="500"></iframe>
 
-</form> -->
+<!-- <iframe  class="container-fluid" src="https://www.google.com/maps/d/embed?mid=1AgyqXERQnLRjHyB2upji924UhFhT7AVx" height="480"></iframe> -->
+<br></br>
+<style>
+    h4{
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    }
+</style>
+<!-- <h4  style="color:#B31B1B"> Thanks for letting us know. {{ persons }} number of people are going. </h4> -->
+<!-- <h2> Interested in going? Let us know!</h2> -->
+<style>
+    #text{
+        color:#B31B1B;
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    }
+</style>
+<form id="text" method="POST" action="{{ url_for('send') }}">
+    {{ form.csrf_token }}
+    {{ form.username.label }}  {{ form.username(size=10) }}
+    <br></br>
+    {{ form.benches.label }}  {{ form.benches() }}
+    <input id="text" type="submit" value="Submit">
+</form> 
 
 {% endblock %}
