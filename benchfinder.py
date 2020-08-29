@@ -15,15 +15,21 @@ LON=list(data['Longitude'])
 name=list(data['Name'])
 directions=list(data['Directions'])
 LIST_BENCHES=name
-url = 'https://photos.app.goo.gl/vAkBHxzFRJ9WG7W18'
-iconBench= folium.features.CustomIcon(url, icon_size=(50,50))
 
 start_coords = [42.4453,-76.482661]
 fg=folium.Map(location=start_coords, zoom_start=17)
+locationBench=[]
+popupBench=[]
 
 
-for lt,ln,nm,ws in zip(LAT,LON,name,directions):
- 	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><a href="+ws+">click here</a>",icon=iconBench))
+for i in range(13):
+
+    locationBench_temp = [LAT[i], LON[i]]
+    locationBench.append(locationBench_temp)
+    description = "<b>Name  : </b>"+name[i] + "<br><b>Directions: </b><a href="+directions[i]+">click here</a>"
+    popupBench.append(description)
+    folium.Marker(location=locationBench_temp, popup=description, icon=folium.features.CustomIcon('bench.jpg', icon_size=(50,50))).add_to(fg)
+
 
 class ReusableForm(FlaskForm):
     username = StringField('Number of People Going')
