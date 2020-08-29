@@ -23,6 +23,7 @@ locationBench=[]
 popupBench=[]
 
 
+<<<<<<< HEAD
 for i in range(13):
 
     locationBench_temp = [LAT[i], LON[i]]
@@ -31,6 +32,10 @@ for i in range(13):
     popupBench.append(description)
     folium.Marker(location=locationBench_temp, popup=description, icon=folium.features.CustomIcon('bench.jpg', icon_size=(50,50))).add_to(fg)
 
+=======
+for lt,ln,nm,ws in zip(LAT,LON,name,directions):
+ 	fg.add_child(folium.Marker(location=[lt,ln],popup="<b>Name  : </b>"+nm + "<br><b>Directions: </b><a href="+ws+">click here</a>",icon=folium.Icon(color='green')))
+>>>>>>> 1f07f7cdd5f9a22a4c3e7dc12e93496823e59a24
 
 class ReusableForm(FlaskForm):
     username = StringField('Number of People Going')
@@ -59,7 +64,10 @@ def send():
     form= ReusableForm()
 
     if form.validate_on_submit():
-         return "<h2> Persons going: {0} {1}".format(form.username.data, form.benches.data)
+        
+        user = "Got it! {0} more hoomans are visiting {1}.".format(form.username.data, form.benches.data)
+        return render_template('submission.html', value=user)
+        #  return "<h2> Persons going: {0} {1}".format(form.username.data, form.benches.data)
     return render_template("persons.html",form=form)
 
 @app.route("/testsignup")
